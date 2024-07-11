@@ -6,12 +6,6 @@ export class RolesSeed extends BaseSeed('roles') {
 		const collection = await this.getCollection()
 		await collection.deleteMany({})
 
-		for (const role of roles) {
-			await collection.findOneAndUpdate(
-				{ name: role.name },
-				{ $set: { ...role } },
-				{ upsert: true, }
-			)
-		}
+		collection.insertMany(roles)
 	}
 }

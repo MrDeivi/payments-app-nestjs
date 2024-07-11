@@ -6,12 +6,6 @@ export class UsersSeed extends BaseSeed('users') {
 		const collection = await this.getCollection()
 		await collection.deleteMany({})
 
-		for (const user of users) {
-			await collection.findOneAndUpdate(
-				{ email: user.email },
-				{ $set: { ...user } },
-				{ upsert: true }
-			)
-		}
+		collection.insertMany(users)
   }
 }
