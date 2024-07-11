@@ -6,6 +6,6 @@ export class UsersSeed extends BaseSeed('users') {
 		const collection = await this.getCollection()
 		await collection.deleteMany({})
 
-		collection.insertMany(users)
+		await collection.insertMany(users)
   }
 }

@@ -6,6 +6,6 @@ export class RolesSeed extends BaseSeed('roles') {
 		const collection = await this.getCollection()
 		await collection.deleteMany({})
 
-		collection.insertMany(roles)
+		await collection.insertMany(roles)
 	}
 }
